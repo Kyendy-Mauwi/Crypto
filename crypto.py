@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import joblib
 
 # Load cryptocurrency data
 @st.cache_data
@@ -11,6 +12,11 @@ def load_data():
     return data
 
 data = load_data()
+
+# Load the trained machine learning model
+model = joblib.load('Data/best_model.pkl')
+
+st.title("Cryptocurrency Data Analysis")
 
 # Sidebar
 st.sidebar.title("Cryptocurrency Data Analysis")
@@ -53,7 +59,7 @@ feature1 = st.sidebar.selectbox("Select a cryptocurrency", data['name'].unique()
 filtered_data = data[data['name'] == feature1]
 
 # Main content
-st.title("Cryptocurrency Data Analysis")
+
 
 # Data Information Section
 st.write("## Data Information")
