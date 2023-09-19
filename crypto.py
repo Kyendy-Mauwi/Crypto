@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-import joblib
+# import joblib
 import numpy as pd
 
 # Load cryptocurrency data
@@ -15,7 +15,7 @@ def load_data():
 data = load_data()
 
 # Load the trained machine learning model
-model = joblib.load('Data/best_model.pkl')
+# model = joblib.load('Data/best_model.pkl')
 st.title("Cryptocurrency Data Analysis")
 
 # Sidebar
