@@ -4,3 +4,4 @@ matplotlib==3.4.3
 seaborn
 plotly
 joblib
+numpy
