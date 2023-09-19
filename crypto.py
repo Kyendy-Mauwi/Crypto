@@ -74,36 +74,32 @@ st.write(filtered_data.columns.tolist())
 st.write("## Dataset Description")
 st.write(filtered_data.describe())
 
-# # Line Chart for Price Over Time
-# st.write("## Cryptocurrency Price Over Time")
-# fig, ax = plt.subplots(figsize=(10, 6))
-# # sns.lineplot(data=filtered_data, x='timestamp', y='quote.KES.price')
-# # x = filtered_data['timestamp'].to_numpy()
-# # y = filtered_data['quote.KES.price'].to_numpy()
-# # sns.lineplot(x=x, y=y)
-# plt.xticks(rotation=90)
-# plt.xlabel("Date")
-# plt.ylabel("Price (KES)")
-# plt.title(f"{feature1} Price Over Time")
-# st.pyplot(fig)
 # Line Chart for Price Over Time
 st.write("## Cryptocurrency Price Over Time")
 fig, ax = plt.subplots(figsize=(10, 6))
-
-# Convert 'timestamp' to datetime
-filtered_data['timestamp'] = pd.to_datetime(filtered_data['timestamp'])
-
-# Sort the data by 'timestamp' to ensure it's in chronological order
-filtered_data = filtered_data.sort_values(by='timestamp')
-
-# Create the line chart
 sns.lineplot(data=filtered_data, x='timestamp', y='quote.KES.price')
-
+# x = filtered_data['timestamp'].to_numpy()
+# y = filtered_data['quote.KES.price'].to_numpy()
+# sns.lineplot(x=x, y=y)
 plt.xticks(rotation=90)
 plt.xlabel("Date")
 plt.ylabel("Price (KES)")
 plt.title(f"{feature1} Price Over Time")
 st.pyplot(fig)
+# # Line Chart for Price Over Time
+# st.write("## Cryptocurrency Price Over Time")
+# fig, ax = plt.subplots(figsize=(10, 6))
+# # Convert 'timestamp' to datetime
+# filtered_data['timestamp'] = pd.to_datetime(filtered_data['timestamp'])
+# # Sort the data by 'timestamp' to ensure it's in chronological order
+# filtered_data = filtered_data.sort_values(by='timestamp')
+# # Create the line chart
+# sns.lineplot(data=filtered_data, x='timestamp', y='quote.KES.price')
+# plt.xticks(rotation=90)
+# plt.xlabel("Date")
+# plt.ylabel("Price (KES)")
+# plt.title(f"{feature1} Price Over Time")
+# st.pyplot(fig)
 
 # Histogram for Price Distribution
 st.write("## Price Distribution")
