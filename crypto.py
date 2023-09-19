@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import joblib
+import numpy as pd
 
 # Load cryptocurrency data
 @st.cache_data
@@ -14,8 +15,7 @@ def load_data():
 data = load_data()
 
 # Load the trained machine learning model
-# model = joblib.load('Data/best_model.pkl')
-
+model = joblib.load('Data/best_model.pkl')
 st.title("Cryptocurrency Data Analysis")
 
 # Sidebar
@@ -76,7 +76,10 @@ st.write(filtered_data.describe())
 # Line Chart for Price Over Time
 st.write("## Cryptocurrency Price Over Time")
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.lineplot(x='timestamp', y='quote.KES.price', data=filtered_data)
+# sns.lineplot(x='timestamp', y='quote.KES.price', data=filtered_data)
+x = filtered_data['timestamp'].to_numpy()
+y = filtered_data['quote.KES.price'].to_numpy()
+sns.lineplot(x=x, y=y)
 plt.xticks(rotation=90)
 plt.xlabel("Date")
 plt.ylabel("Price (KES)")
