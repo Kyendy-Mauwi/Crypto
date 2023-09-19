@@ -7,7 +7,7 @@ import joblib
 import numpy as np
 
 # Load cryptocurrency data
-@st.cache_data
+@st.cache
 def load_data():
     data = pd.read_csv('Data/Cryptodata.csv')
     return data
