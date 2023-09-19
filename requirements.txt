@@ -1,6 +1,6 @@
 streamlit
 pandas
-seaborn
 matplotlib
-joblib
+seaborn
 plotly
+joblib
