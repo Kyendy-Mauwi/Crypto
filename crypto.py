@@ -76,13 +76,18 @@ st.write(filtered_data.describe())
 
 # Line Chart for Price Over Time
 st.write("## Cryptocurrency Price Over Time")
-fig, ax = plt.subplots(figsize=(10, 6))
-sns.lineplot(data=filtered_data, x='timestamp', y='quote.KES.price')
-plt.xticks(rotation=90)
-plt.xlabel("Date")
-plt.ylabel("Price (KES)")
-plt.title(f"{feature1} Price Over Time")
-st.pyplot(fig)
+filtered_data = filtered_data.sort_values(by='timestamp')
+fig = px.line(filtered_data, x='timestamp', y='quote.KES.price', title=f"{feature1} Price Over Time")
+fig.update_xaxes(title_text="Date")
+fig.update_yaxes(title_text="Price (KES)")
+st.plotly_chart(fig)
+# fig, ax = plt.subplots(figsize=(10, 6))
+# sns.lineplot(data=filtered_data, x='timestamp', y='quote.KES.price')
+# plt.xticks(rotation=90)
+# plt.xlabel("Date")
+# plt.ylabel("Price (KES)")
+# plt.title(f"{feature1} Price Over Time")
+# st.pyplot(fig)
 
 
 # Histogram for Price Distribution
