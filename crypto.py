@@ -15,7 +15,7 @@ def load_data():
 data = load_data()
 
 # Load the trained machine learning model
-# model = joblib.load('Data/best_model.pkl')
+model = joblib.load('Data/best_model.pkl')
 
 st.title("Cryptocurrency Data Analysis")
 
